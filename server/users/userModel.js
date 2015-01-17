@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    bcrypt   = require('bcrypt-nodejs'),
+    bcrypt   = require('bcrypt'),
     Q        = require('q'),
     SALT_WORK_FACTOR  = 10;
 
@@ -21,7 +21,7 @@ var UserSchema = new mongoose.Schema({
 UserSchema.methods.comparePasswords = function (candidatePassword) {
   var defer = Q.defer();
   var savedPassword = this.password;
-  bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
+  bcrypt.compare(candidatePassword, savedPassword,function (err, isMatch) {
     if (err) {
       defer.reject(err);
     } else {
