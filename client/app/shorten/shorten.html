@@ -13,8 +13,21 @@
     </div>
 
     <form>
-      <input class="text" type="url" ng-model="$scope.url">
+      <input type="url" placeholder="input url here" ng-model="url">
       <input ng-click="addLink()" type='submit'>
     </form>
+    <div ng-hide="">
+      <div>
+        <img src="../assets/redirect_icon.png">
+        <div>
+          <div>
+          <span class="count">Visits = {{url.visits}}</span>
+          </div>
+          <div>{{url.title}}</div>
+          <div>{{url.url}}</div>
+          <a href="'"+{{url.base_url+'/'+url.code}}+"'">{{url.base_url+'/'+url.code}}</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

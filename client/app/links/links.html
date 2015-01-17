@@ -10,4 +10,25 @@
     </ul>
     <a href="#/logout" class="logout">logout</a>
   </div>
+
+
+  <div class="container">
+    <div class="links">
+    <div class="link" ng-repeat="link in data.links">
+      <div ng-hide="">
+        <div>
+          <img src="../assets/redirect_icon.png">
+          <div class="info">
+            <div class="visits">
+            <span class="count">{{link.visits}}</span>
+            visits
+            </div>
+            <div class="title">{{link.title}}</div>
+            <div class="original">{{link.url}}</div>
+            <a ng-click="visitCount(link)" href={{link.url}}>{{link.base_url+"/"+link.code}}</a>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
 </div>

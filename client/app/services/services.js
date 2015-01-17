@@ -20,9 +20,21 @@ angular.module('shortly.services', [])
     });
   };
 
+  var updateVisit = function(links){
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: links
+    }).then(function(resp){
+      return resp;
+    });
+  };
+
+
   return {
     getLinks: getLinks,
-    addLink: addLink
+    addLink: addLink,
+    updateVisit: updateVisit
   };
 })
 .factory('Auth', function ($http, $location, $window) {
@@ -34,6 +46,7 @@ angular.module('shortly.services', [])
   // after you signin/signup open devtools, click resources,
   // then localStorage and you'll see your token from the server
   var signin = function (user) {
+    console.log(user);
     return $http({
       method: 'POST',
       url: '/api/users/signin',

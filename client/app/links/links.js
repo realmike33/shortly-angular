@@ -10,6 +10,17 @@ angular.module('shortly.links', [])
         console.error(err);
       });
     };
+    $scope.visitCount = function(link){
+      console.log(link);
+      link.visits++;
+      console.log(link);
+      Links.updateVisit(link).then(function(data){
+        console.log(data);
+      })
+      .catch(function(err){
+        throw err;
+      });
+    };
     $scope.getLinks();
     return $scope.data.links;
   });
