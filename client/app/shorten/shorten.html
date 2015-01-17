@@ -1,13 +1,20 @@
-<div id='container' ng-controller="LinksController">
-  <div class="navigation">
-    <ul>
-      <li>
-        <a href="#/links" class="index selected">All Links</a>
-      </li>
-      <li>
-        <a href="#/shorten" class="create">Shorten</a>
-      </li>
-    </ul>
-    <a href="#/logout" class="logout">logout</a>
+<div id='container' ng-controller="ShortenController">
+  <div>
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#/links" class="index selected">All Links</a>
+        </li>
+        <li>
+          <a href="#/shorten" class="create">Shorten</a>
+        </li>
+      </ul>
+      <a href="#/logout" class="logout">logout</a>
+    </div>
+
+    <form>
+      <input class="text" type="url" ng-model="$scope.url">
+      <input ng-click="addLink()" type='submit'>
+    </form>
   </div>
 </div>
